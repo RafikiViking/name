@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Name · Carta</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;1,400&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+/* Fondo con foto local */
+body{
+    font-family:"Quicksand", sans-serif;
+    background: url('foto.png') center/cover fixed no-repeat;
+    min-height:100vh;
+    color:white;
+    overflow-x:hidden;
+    position:relative;
+}
+
+/* Capa oscura para mejorar lectura */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,40,0.45);
+    z-index:-10;
+}
+
+/* Estrellas */
+.bg-stars{
+    position:fixed;
+    inset:0;
+    background:
+      radial-gradient(2px 2px at 20% 30%, #fff, transparent),
+      radial-gradient(1px 1px at 70% 60%, #ddd, transparent),
+      radial-gradient(1px 1px at 40% 80%, #bbb, transparent),
+      radial-gradient(1px 1px at 80% 25%, #eee, transparent);
+    opacity:0.3;
+    z-index:-5;
+}
+
+/* 🌠 Cometa Tiamat mejorado */
+.comet{
+    position:fixed;
+    width:18px; 
+    height:18px;
+    border-radius:50%;
+    background: radial-gradient(circle, #ffffff, #ffe6f2 40%, #ff8ab7 80%);
+    box-shadow:
+        0 0 25px 10px #ff9bb8,
+        0 0 60px 30px rgba(255,150,180,0.6);
+    top:10%;
+    left:-15%;
+    animation:cometFly 9s cubic-bezier(.15,.85,.45,1) infinite,
+              cometPulse 2s ease-in-out infinite alternate;
+    z-index:-3;
+}
+
+/* Cola rosada */
+.comet::after{
+    content:"";
+    position:absolute;
+    width:430px;
+    height:10px;
+    background:linear-gradient(to right, #ffb3d4, transparent);
+    right:10px;
+    top:4px;
+    transform:rotate(-12deg);
+    filter:blur(10px);
+    opacity:0.85;
+}
+
+/* Cola azul */
+.comet::before{
+    content:"";
+    position:absolute;
+    width:260px;
+    height:6px;
+    background:linear-gradient(to right, #9cd6ff, transparent);
+    right:0;
+    top:8px;
+    transform:rotate(-10deg);
+    filter:blur(14px);
+    opacity:0.7;
+}
+
+/* Trayectoria curva */
+@keyframes cometFly{
+    0%{transform:translate(-10vw, -10vh) rotate(0deg);}
+    50%{transform:translate(50vw, -40vh) rotate(4deg);}
+    100%{transform:translate(120vw, 10vh) rotate(-6deg);}
+}
+
+/* Pulso luminoso */
+@keyframes cometPulse{
+    from{
+        filter:brightness(1);
+        box-shadow:
+            0 0 25px 10px #ff9bb8,
+            0 0 60px 30px rgba(255,150,180,0.6);
+    }
+    to{
+        filter:brightness(1.35);
+        box-shadow:
+            0 0 35px 14px #ffb5d3,
+            0 0 90px 40px rgba(255,180,210,0.8);
+    }
+}
+
+/* Contenido */
+.container{
+    max-width:900px;
+    margin:90px auto;
+    padding:20px;
+}
+
+.title{
+    text-align:center;
+    font-size:34px;
+    font-weight:600;
+    text-shadow:0 3px 20px rgba(255,255,255,0.6);
+    margin-bottom:20px;
+}
+
+/* Tarjeta */
+.card{
+    background:rgba(255,255,255,0.14);
+    padding:30px;
+    border-radius:20px;
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,0.2);
+    box-shadow:0 8px 35px rgba(0,0,0,0.4);
+    position:relative;
+}
+
+/* Hilo rojo */
+.red-thread{
+    position:absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    pointer-events:none;
+}
+.red-thread path{
+    stroke:#ff3e5f;
+    stroke-width:5;
+    fill:none;
+    stroke-linecap:round;
+    stroke-dasharray:1500;
+    stroke-dashoffset:1500;
+    animation:threadDraw 4s ease forwards;
+    filter:drop-shadow(0 0 6px rgba(255,60,90,0.8));
+}
+@keyframes threadDraw{
+    to{ stroke-dashoffset:0; }
+}
+
+/* Texto */
+.letter{
+    font-family:"Cardo", serif;
+    font-size:19px;
+    white-space:pre-wrap;
+    line-height:1.65;
+    position:relative;
+    z-index:2;
+}
+
+/* Música */
+.music-box{
+    text-align:center;
+    margin-top:20px;
+}
+.music-btn{
+    background:#ff4e7a;
+    border:none;
+    color:white;
+    font-size:16px;
+    padding:12px 22px;
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:700;
+    box-shadow:0 5px 25px rgba(255,80,130,0.4);
+    transition:0.3s;
+}
+.music-btn:hover{
+    scale:1.07;
+    background:#ff275e;
+}
+
+/* Responsive */
+@media(max-width:600px){
+    .title{font-size:26px;}
+    .letter{font-size:17px;}
+    .container{padding:10px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-stars"></div>
+<div class="comet"></div>
+
+<div class="container">
+    <h1 class="title">Kimi no Na wa · Hilo Rojo del Destino</h1>
+
+    <div class="card">
+
+        <!-- Hilo rojo -->
+        <svg class="red-thread" viewBox="0 0 900 600">
+            <path d="M 10 300 
+                     C 150 200, 260 420, 380 310
+                     C 500 200, 600 450, 740 250
+                     C 820 180, 900 300, 850 350" />
+        </svg>
+
+        <!-- Carta -->
+        <div class="letter">
+Hay personas que llegan a la vida y la revuelven como si hubieran tocado algún hilo secreto del destino. Tú eres de esos que dejan latidos desordenados y risas que se quedan colgando en el aire, como si estuvieran esperando que yo las recoja y me las guarde.
+
+A veces recuerdo esa frase que dice: “Atesora la experiencia. Los sueños se desvanecen al despertar.” Y contigo pasa al revés. Hay momentos que compartimos que parecen sueños que se niegan a desvanecerse, como si quisieran quedarse pegados a mi piel un rato más.
+
+Y, mira, no te voy a mentir, también me ronda esa línea atrevida en su sencillez “Quiero decirte que donde quiera que estés en el mundo, te encontraré.” Yo no sé si te encontraría en otra vida, pero en esta tienes el talento de aparecer justo cuando necesito un poco de fuego, un poco de caos, un poco de esa mirada tuya que provoca más de lo que admite.
+
+Tienes una forma muy tuya de brillar ni exagerada ni tímida; más bien esa chispa que uno detecta incluso cuando intenta hacerse el distraído. Y aunque somos amigos, tú y yo sabemos que algunas miradas tienen filo dulce, como una caricia con intención de travesura.
+
+Gracias por ser ese enredo delicioso en mi historia. Esa que hace que el día se caliente un poquito más de lo previsto. Esa que convierte un mensaje cualquiera en un latido. Esa que, sin decirlo, deja la puerta entreabierta a posibilidades que dan un gustito peligroso.
+
+Si alguna vez dudas de tu encanto, avísame. Con gusto te lo recuerdo de cerca.
+        </div>
+
+        <!-- Música -->
+        <div class="music-box">
+            <button id="playMusic" class="music-btn">🎵 Reproducir música</button>
+        </div>
+
+    </div>
+</div>
+
+<audio id="audio" src="musica.mp3"></audio>
+
+<script>
+const btn = document.getElementById("playMusic");
+const audio = document.getElementById("audio");
+let playing = false;
+
+btn.addEventListener("click",()=>{
+    if(!playing){
+        audio.play();
+        playing = true;
+        btn.textContent = "⏸️ Pausar música";
+    } else {
+        audio.pause();
+        playing = false;
+        btn.textContent = "🎵 Reproducir música";
+    }
+});
+</script>
+
+</body>
+</html>
